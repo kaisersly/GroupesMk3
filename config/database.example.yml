@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: groupesmk3_development
+  pool: 5
+  username: groupesmk3
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: groupesmk3_test
+  pool: 5
+  username: groupesmk3
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: groupesmk3_production
+  pool: 5
+  username: groupesmk3
+  password:
