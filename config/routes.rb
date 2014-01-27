@@ -1,5 +1,7 @@
 GroupesMk3::Application.routes.draw do
     
+  resources :choices
+
   resources :etudiants
 
   resources :matieres do

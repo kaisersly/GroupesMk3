@@ -11,15 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127212412) do
+ActiveRecord::Schema.define(version: 20140127214253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "choices", force: true do |t|
+    t.integer  "matiere_id",  null: false
+    t.integer  "etudiant_id", null: false
+    t.integer  "groupe_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "choices", ["matiere_id", "etudiant_id"], name: "index_choices_on_matiere_id_and_etudiant_id", unique: true, using: :btree
+
   create_table "etudiants", force: true do |t|
     t.string   "code"
-    t.string   "firstname"
-    t.string   "lastname"
+    t.string   "firstname",  null: false
+    t.string   "lastname",   null: false
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -28,20 +38,20 @@ ActiveRecord::Schema.define(version: 20140127212412) do
   add_index "etudiants", ["code"], name: "index_etudiants_on_code", unique: true, using: :btree
 
   create_table "formations", force: true do |t|
-    t.string   "name"
-    t.string   "status",     default: "opened"
+    t.string   "name",       null: false
+    t.string   "status",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "groupes", force: true do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.string   "schedule"
     t.string   "weekday"
     t.string   "teacher"
     t.string   "location"
     t.text     "additional"
-    t.integer  "matiere_id"
+    t.integer  "matiere_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status"
@@ -52,11 +62,11 @@ ActiveRecord::Schema.define(version: 20140127212412) do
   add_index "groupes", ["name", "matiere_id"], name: "index_groupes_on_name_and_matiere_id", unique: true, using: :btree
 
   create_table "matieres", force: true do |t|
-    t.string   "name"
-    t.string   "code"
+    t.string   "name",         null: false
+    t.string   "code",         null: false
     t.string   "status"
-    t.integer  "capacity"
-    t.integer  "formation_id"
+    t.integer  "capacity",     null: false
+    t.integer  "formation_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :etudiant do
-    code "MyString"
-    firstname "MyString"
-    lastname "MyString"
-    email "MyString"
+    code "10101010"
+    firstname "Toto"
+    lastname "L'asticot"
+    email "toto@lasti.cot"
   end
 end
