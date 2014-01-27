@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127202717) do
+ActiveRecord::Schema.define(version: 20140127212412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "etudiants", force: true do |t|
+    t.string   "code"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "etudiants", ["code"], name: "index_etudiants_on_code", unique: true, using: :btree
 
   create_table "formations", force: true do |t|
     t.string   "name"

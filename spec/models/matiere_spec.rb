@@ -34,5 +34,6 @@ describe Matiere do
     matiere.destroy
     expect(Groupe.count).to eq 0
   end
+  it "destroys its choices when destroyed"
 
 end
