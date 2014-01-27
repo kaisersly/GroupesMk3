@@ -34,6 +34,5 @@ describe Matiere do
     matiere.destroy
     expect(Groupe.count).to eq 0
   end
-  it "returns a paginated result"
 
 end

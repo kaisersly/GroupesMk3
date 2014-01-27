@@ -22,6 +22,5 @@ describe Groupe do
   	expect(build(:groupe, name: "groupe 1", matiere: matiere)).to have(1).errors_on(:name)
   end
   it "nullify its choices when destroyed"
-  it "returns a paginated result"
 
 end
